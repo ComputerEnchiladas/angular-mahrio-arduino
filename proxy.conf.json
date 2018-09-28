@@ -2,5 +2,17 @@
   "/" : {
     "target": "http://127.0.0.1:8000",
     "secure": false
+  },
+  "/lcd" : {
+    "target": "http://127.0.0.1:8003",
+    "secure": false
+  },
+  "/neopixel": {
+    "target": "http://127.0.0.1:8002",
+    "secure": false
+  },
+  "/rgb": {
+    "target": "http://127.0.0.1:8001",
+    "secure": false
   }
 }
