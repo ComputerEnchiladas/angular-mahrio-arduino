@@ -1,4 +1,23 @@
-# WebAppTwo
+# Setup
+
+* Clone this repo or download
+* Open using WebStorm or Terminal the repo's location
+* Run `npm install`
+
+## Module Dependencies
+
+* mahrio - Application Server
+* socket.io - Socket Support for Application Server
+* socket.io-client - Client Socket Support for Web App
+* johnny-five - Hardware Interface with Arduino
+
+# Web Server
+
+## Start
+
+Run `node server/index` to start server.
+
+# Web App
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
@@ -6,22 +25,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+To run development server using your local IP, add `--host xxx.xxx.xxx.xxx` at end of scripts > start value in package.json, on mac 
+hold down `option` key and click wireless icon on top right corner then look for IP Address.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+To change port of development server, add `--port 8000` at end of value of scripts > start in package.json.
 
-## Build
+# Web App Proxy to Server
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+The web app runs it's own dev server on local development. We `proxy-conf.json` to map routes to our mahrio server.
