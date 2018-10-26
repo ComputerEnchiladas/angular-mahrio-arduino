@@ -1,5 +1,5 @@
 var five = require("johnny-five");
-var board = new five.Board();
+var board = new five.Board(), timer = 15;
 
 board.on("ready", function() {
   var random = Math.random().toString(36).replace(/[^a-z]+/g, "").substr(0, 4).toUpperCase();
@@ -8,6 +8,11 @@ board.on("ready", function() {
     controller: "PCF8574T"
   });
 
-  l.useChar("heart");
-  l.cursor(0, 0).print("hello :heart:");
+  setInterval( function(){
+    if( timer ) {
+      l.cursor(0, 0).print("00:" + timer--);
+    } else {
+      // alert
+    }
+  }, 1000);
 });
