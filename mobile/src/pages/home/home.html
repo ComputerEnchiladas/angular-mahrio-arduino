@@ -5,14 +5,12 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
+  <img src="https://www.yalelock.com/presets/small/Yale/Italy/Smart%20Living/Icons/Smart_Living_SDL_Icon_1.png"/>
   <h1>{{dir}}</h1>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+
+  <button ion-button block>ON</button>
+  <button ion-button block>OFF</button>
+  <br/>
+  <br/>
+  <button ion-button block color="dark" (click)="showAlert()">Show Basic Alert</button>
 </ion-content>
