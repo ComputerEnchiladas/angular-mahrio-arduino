@@ -1,5 +1,5 @@
 process.env.PORT = 8005;
-process.env.MONGODB_URI = 'mongodb://<user>:<password>@ds135993.mlab.com:35993/<database>';
+process.env.MONGODB_URI = 'mongodb://127.0.0.1:27017/development';
 
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema,
