@@ -1,4 +1,4 @@
-var five = require("johnny-five"), orientation, alarm = Date.now(),
+var five = require("johnny-five"), orientation, alarm = Date.now(), io,
   ready, accel, board = new five.Board();
 
 board.on("ready", function() {
@@ -7,6 +7,7 @@ board.on("ready", function() {
   });
   accel.on("orientation", function(data) {
     orientation = data;
+    io.sockets.emit('event:orientation', data);
   });
 });
 
@@ -38,6 +39,7 @@ setInterval(function() {
 }, 5000);
 
 process.env.PORT = 8005;
+process.env.NODE_URL = '10.251.13.113';
 process.env.MONGODB_URI = 'mongodb://127.0.0.1:27017/development';
 
 var mongoose = require('mongoose'),
@@ -53,6 +55,7 @@ var Log = mongoose.model('Log', LogSchema);
 require('mahrio').runServer( process.env, __dirname )
   .then( function(server) {
     ready = true;
+    io = require('socket.io').listen( server.listener );
     server.route({
       method: 'GET',
       path: '/button-clicks',
